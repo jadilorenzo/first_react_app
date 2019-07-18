@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 function TicketDetail(props){
   return (
-    <div>
+    <div className='main'>
       <hr/>
-      <h1>{props.selectedTicket.names} - {props.selectedTicket.location}</h1>
-      <h2>Submitted {props.selectedTicket.formattedWaitTime} ago</h2>
-      <h4><em>{props.selectedTicket.issue}</em></h4>
+      <h2>{props.selectedTicket.names} - {props.selectedTicket.location}</h2>
+      <h3>Submitted {props.selectedTicket.formattedWaitTime} ago</h3>
+      <h5><em>{props.selectedTicket.issue}</em></h5>
       <hr/>
     </div>
   )

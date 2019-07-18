@@ -1,61 +1,51 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Moment from 'moment';
-import Success from './Success';
+import React from 'react'
+import Moment from 'moment'
+import { connect } from 'react-redux'
+import { v4 } from 'uuid'
 
-class NewTicketForm extends React.Component {
+function NewTicketForm(props){
+  let _names = null
+  let _location = null
+  let _issue = null
 
-  constructor(props) {
-    super(props);
-
-    this._names = '';
-    this._location = '';
-    this._issue = '';
-
-    this.state = {
-      success: null
-    };
-    this.handleNewTicketFormSubmission = this.handleNewTicketFormSubmission.bind(this);
+  function handleNewTicketFormSubmission(event) {
+    const { dispatch } = props
+    event.preventDefault()
+    const action = {
+      type: 'ADD_TICKET',
+      id: v4(),
+      names: _names.value,
+      location: _location.value,
+      issue: _issue.value,
+      timeOpen: new Moment()
+    }
+    dispatch(action)
+    _names.value = ''
+    _location.value = ''
+    _issue.value = ''
   }
 
-  handleNewTicketFormSubmission(event) {
-    event.preventDefault();
-    this.props.onNewTicketCreation({names: this._names.value, location: this._location.value, issue: this._issue.value, timeOpen: new Moment()});
-    this._names.value = '';
-    this._location.value = '';
-    this._issue.value = '';
-    this.setState({success: <Success />});
-  }
-
-  render() {
-    return (
-      <div>
-        <form action="/" onSubmit={this.handleNewTicketFormSubmission}>
-          <input
-            type='text'
-            id='names'
-            placeholder='Pair Names'
-            ref={(input) => {this._names = input;}}/>
-          <input
-            type='text'
-            id='location'
-            placeholder='Location'
-            ref={(input) => {this._location = input;}}/>
-          <textarea
-            id='issue'
-            placeholder='Describe your issue.'
-            ref={(textarea) => {this._issue = textarea;}}/>
-          <button className="btn" type='submit'>Help!</button>
-        </form>
-        {this.state.success}
-      </div>
-    );
-  }
+  return (
+    <div className='main'>
+      <form onSubmit={handleNewTicketFormSubmission}>
+        <input
+          type='text'
+          id='names'
+          placeholder='Pair Names'
+          ref={(input) => {_names = input}}/>
+        <input
+          type='text'
+          id='location'
+          placeholder='Location'
+          ref={(input) => {_location = input}}/>
+        <textarea
+          id='issue'
+          placeholder='Describe your issue.'
+          ref={(textarea) => {_issue = textarea}}/>
+        <button className='btn' type='submit'>Help!</button>
+      </form>
+    </div>
+  )
 }
 
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
-
-};
-
-export default NewTicketForm;
+export default connect()(NewTicketForm)

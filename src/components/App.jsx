@@ -22,21 +22,29 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    // var newMasterTicketList = Object.assign({}, this.state.masterTicketList)
-    // Object.keys(newMasterTicketList).forEach(ticketId => {
-    //   newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
-    // })
-    // this.setState({masterTicketList: newMasterTicketList})
+    const { dispatch } = this.props
+    Object.keys(this.props.masterTicketList).map(ticketId => {
+      const ticket = this.props.masterTicketList[ticketId]
+      const newFormattedWaitTime = ticket.timeOpen.fromNow(true)
+      const action = {
+        type: 'UPDATE_TIME',
+        id: ticketId,
+        formattedWaitTime: newFormattedWaitTime
+      }
+      dispatch(action)
+    })
   }
 
   render(){
     return (
-      <div className='container'>
+      <div className='container main'>
+
         <Header/>
+        <div className='break'></div>
         <Switch>
-          <Route exact path='/' render={()=><TicketList ticketList={this.props.masterTicketList} />} />
-          <Route path='/newticket' render={()=><NewTicketControl />} />
-          <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
+          <Route exact path='/' render={()=> <div className='main'><TicketList ticketList={this.props.masterTicketList}/></div>}/>
+          <Route path='/newticket' render={()=><div className='main'><NewTicketControl /></div>} />
+          <Route path='/admin' render={(props)=><div className='main'><Admin currentRouterPath={props.location.pathname} /></div>} />
           <Route component={Error404} />
         </Switch>
       </div>
@@ -45,7 +53,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  masterTicketList: PropTypes.object
+  masterTicketList: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = state => {

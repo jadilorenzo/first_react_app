@@ -2,6 +2,7 @@ import React from 'react'
 import Moment from 'moment'
 import { connect } from 'react-redux'
 import { v4 } from 'uuid'
+
 function NewTicketForm(props){
   let _names = null
   let _location = null
@@ -16,7 +17,8 @@ function NewTicketForm(props){
       names: _names.value,
       location: _location.value,
       issue: _issue.value,
-      timeOpen: new Moment()
+      timeOpen: new Moment(),
+      formattedWaitTime: new Moment().fromNow(true)
     }
     dispatch(action)
     _names.value = ''
@@ -25,7 +27,7 @@ function NewTicketForm(props){
   }
 
   return (
-    <div className='main'>
+    <div>
       <form onSubmit={handleNewTicketFormSubmission}>
         <input
           type='text'

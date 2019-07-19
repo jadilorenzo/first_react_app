@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function TicketDetail(props){
   return (
-    <div className='main'>
+    <div>
       <hr/>
       <h2>{props.selectedTicket.names} - {props.selectedTicket.location}</h2>
       <h3>Submitted {props.selectedTicket.formattedWaitTime} ago</h3>

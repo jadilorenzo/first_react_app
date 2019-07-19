@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function ConfirmationQuestions(props){
   return (
-    <div className='main'>
+    <div>
       <p>Have you gone through all the steps on the Learn How to Program debugging lesson?</p>
       <button onClick={props.onTroubleshootingConfirmation} className='btn'>Yes</button>
     </div>

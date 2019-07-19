@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function TicketDetail(props){
+const TicketDetail = (props) => {
   return (
     <div>
       <hr/>

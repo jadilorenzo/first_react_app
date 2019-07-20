@@ -13,8 +13,7 @@ class App extends React.Component {
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateTicketElapsedWaitTime(),
-    console.log('update'),
-    6000
+    60000
     )
   }
 
@@ -40,11 +39,11 @@ class App extends React.Component {
     return (
       <div className='container main'>
 
-        <Header/>
         <div className='break'></div>
+        <Header/>
         <Switch>
           <Route exact path='/' render={()=> <div className='main'><TicketList ticketList={this.props.masterTicketList}/></div>}/>
-          <Route path='/newticket' render={()=><div className='main'><NewTicketControl /></div>} />
+          <Route path='/newticket' render={()=><NewTicketControl />} />
           <Route path='/admin' render={(props)=><div className='main'><Admin currentRouterPath={props.location.pathname} /></div>} />
           <Route component={Error404} />
         </Switch>

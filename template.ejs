@@ -4,94 +4,83 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link global rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
   <style jsx global>
-    .title {
-      text-decoration: none;
-      position: absolute;
-      top: 0;
-      left:0;
-      right:0;
-      background-color: rgb(240, 98, 37);
-      text-align: center;
-      height: 70px;
-    }
+     .title {
+       text-decoration: none;
+       position: absolute;
+       top: 0;
+       left:0;
+       right:0;
+       background-color: rgb(240, 98, 37);
 
-    h1 {
-      font-weight: lighter;
-      color: white;
-      padding-top: 0;
-    }
+       height: 70px;
+     }
+     h1 {
+       font-weight: lighter;
+       color: white;
+       padding-top: 0;
+     }
+     .title:hover {
+       text-decoration: none;
+     }
+     html {
+       position: relative;
+       min-height: 100%;
+     }
+     body {
+       margin: 0 0 100px;
+       background-color: rgb(225, 225, 225);
+       height: 100%;
+     }
+     textarea {
+       display: block;
+       width: 98%;
+       height: 50px;
+       padding: 12px;
+       font-size: 14px;
+       line-height: 1.42857143;
+       color: #555;
+       background-color: #fff;
+       background-image: none;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       min-width: 10px;
+       margin-top: 10px;
+     }
+     input {
+       display: block;
+       width: 98%;
+       height: 30px;
+       padding: 6px 12px;
+       margin-top: 10px;
+       font-size: 14px;
+       line-height: 1.42857143;
+       color: #555;
+       background-color: #fff;
+       background-image: none;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+     }
+     .btn {
+       margin-top: 10px;
+     }
+     a {
+       /* color: #63aaf7; */
+       font-weight: bolder;
+     }
+     .links {
+       margin-top: 80px;
 
-
-    .title:hover {
-      text-decoration: none;
-    }
-
-    html {
-      position: relative;
-      min-height: 100%;
-    }
-
-    body {
-      margin: 0 0 100px;
-      background-color: rgb(225, 225, 225);
-      height: 100%;
-    }
-
-    textarea {
-      display: block;
-      width: 98%;
-      height: 50px;
-      padding: 12px;
-      font-size: 14px;
-      line-height: 1.42857143;
-      color: #555;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      min-width: 10px;
-      margin-top: 10px;
-    }
-
-    input {
-      display: block;
-      width: 98%;
-      height: 30px;
-      padding: 6px 12px;
-      margin-top: 10px;
-      font-size: 14px;
-      line-height: 1.42857143;
-      color: #555;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .btn {
-      margin-top: 10px;
-    }
-
-    a {
-      /* color: #63aaf7; */
-      font-weight: bolder;
-    }
-
-    .links {
-      margin-top: 80px;
-      text-align: center;
-      padding: 0px;
-      border-bottom: solid rgb(240, 98, 37) 5px;
-      position: absolute;
-      top: 0px;
-      left: 0;
-      right: 0;
-      height: 35px;
-    }
-
-    .break {
-      height: 125px;
-    }
+       padding: 0px;
+       border-bottom: solid rgb(240, 98, 37) 5px;
+       position: absolute;
+       top: 0px;
+       left: 0;
+       right: 0;
+       height: 35px;
+     }
+     .break {
+       height: 130px;
+     }
   </style>
 </head>
   <body>
